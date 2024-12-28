@@ -1,0 +1,24 @@
+<!-- src/app/admin-dashboard/admin-dashboard.component.html -->
+<div class="admin-dashboard">
+  <h2>Admin Dashboard</h2>
+
+  <section class="users">
+    <h3>Users</h3>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.username }} - {{ user.role }}
+        <button (click)="deleteUser(user._id)">Delete</button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="files">
+    <h3>Files</h3>
+    <ul>
+      <li *ngFor="let file of files">
+        {{ file.filename }} - {{ file.uploadedBy }}
+        <button (click)="deleteFile(file._id)">Delete</button>
+      </li>
+    </ul>
+  </section>
+</div>

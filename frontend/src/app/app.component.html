@@ -1,0 +1,30 @@
+<div class="container">
+  <!-- Page Header -->
+  <div class="header">
+    <h2>Welcome to Our Application</h2>
+    <p class="lead">Navigate through the application to see different functionalities</p>
+  </div>
+
+  <!-- Buttons Section -->
+  <div class="buttons">
+    <!-- Get Users Button -->
+    <div class="card">
+      <button class="btn" (click)="fetchUsers()">Get Users</button>
+    </div>
+
+    <!-- Go to Login Button -->
+    <div class="card">
+      <button class="btn btn-success" (click)="navigateToLogin()">Go to Login</button>
+    </div>
+
+    <!-- Go to Register Button -->
+    <div class="card">
+      <button class="btn btn-info" (click)="navigateToRegister()">Go to Register</button>
+    </div>
+  </div>
+
+  <!-- Router Outlet for Rendering Components -->
+  <div class="outlet">
+    <router-outlet></router-outlet>
+  </div>
+</div>

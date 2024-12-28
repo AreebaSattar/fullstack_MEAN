@@ -1,0 +1,74 @@
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Header */
+.header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Buttons Section */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.card .btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Button Color Variations */
+.card .btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.card .btn-success:hover {
+  background-color: #218838;
+}
+
+.card .btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.card .btn-info:hover {
+  background-color: #138496;
+}
+
+/* Outlet Section */
+.outlet {
+  margin-top: 50px;
+}
