@@ -310,6 +310,14 @@ cd fronend
 ```bash
 ng serve
 ```
+#### Frontend Folder Structure
+![image](https://github.com/user-attachments/assets/78a6f10d-efb0-4c66-a640-93c7048346fa)
+#### Components:
+![image](https://github.com/user-attachments/assets/43f021a4-c6f8-4faa-a3d1-e9f93ced735f)
+#### login Component
+![image](https://github.com/user-attachments/assets/75765b69-105d-4fc5-ad1b-7da952a55365)
+
+
 
 
 
