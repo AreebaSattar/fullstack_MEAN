@@ -26,19 +26,34 @@ I have used the jetbrains IDE (Webstorm) for both frontend and backend.
 - **Installed required dependencies that I needed for my project**
   ```bash
   npm install express mongoose jsonwebtoken bcryptjs cors multer cookie-session dotenv
-- **File Structure I have for backend project is:**
+- **For JWT created a key:** - Created file **generateKey.js** and put this code in it 
   ```bash
-   backend/
-    ├── config/
-    │   └── database.js
-    ├── controllers/
-    │   └── userController.js
-    ├── models/
-    │   └── userModel.js
-    ├── routes/
-    │   └── authRoutes.js
-    ├── middleware/
-    │   └── authMiddleware.js
-    ├── .env
-    ├── server.js
+  const crypto = require('crypto');
+  const secureKey = crypto.randomBytes(32).toString('hex');
+  console.log('Secure Key:', secureKey);
+- **Added the variable JWT_SECRET in .env file**
+  ```bash
+  JWT_SECRET="HERE_I_PASTED_MY_SECRET_KEY_THAT_GOT_GENERATED_FROM_ABOVE_FILE_CODE"
+- **Connected MongoDB to the backend by:**
+  ```bash
+  const mongoose = require('mongoose');
+  const dbURI = "mongodb://127.0.0.1:27017/rmtdb";
+  const connectDB = async () => {
+      try {
+          await mongoose.connect(dbURI, {
+              useNewUrlParser: true,
+              useUnifiedTopology: true
+          });
+          console.log('MongoDB connected...');
+      } catch (err) {
+          console.error('MongoDB connection error:', err);
+          process.exit(1);
+      }
+  };
+  
+  module.exports = connectDB;
+**I created the DB and named it rmtdb and connected that to backend**
+
+  
+  
 
