@@ -53,7 +53,20 @@ I have used the jetbrains IDE (Webstorm) for both frontend and backend.
   
   module.exports = connectDB;
 **I created the DB and named it rmtdb and connected that to backend**
-
+- **In server.js called the connectDB function**
+  ```bash
+  const connectDB = require('./config/database');
+  connectDB();
+- **Also used cors for the backend**
+As our frontend is running on 4200 port and backend on 3000, so we need to install cors and use that so that it allows us cross origin connection.
+  ```bash
+  const cors = require('cors');
+  app.use(cors({
+      origin: 'http://localhost:4200', // Angular frontend
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+  
   
   
 
