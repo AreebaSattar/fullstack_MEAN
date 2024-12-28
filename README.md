@@ -20,5 +20,25 @@ I have used the jetbrains IDE (Webstorm) for both frontend and backend.
 ## Step-by-Step Setup 
 - **Created a folder for the backend project and initialize Node.js Project**
   ```bash
-  mkdir backend
+  mkdir backendrmt
+  cd backendrmt
+  npm init -y
+- **Installed required dependencies that I needed for my project**
+  ```bash
+  npm install express mongoose jsonwebtoken bcryptjs cors multer cookie-session dotenv
+- **File Structure I have for backend project is:**
+  ```bash
+   backend/
+    ├── config/
+    │   └── database.js
+    ├── controllers/
+    │   └── userController.js
+    ├── models/
+    │   └── userModel.js
+    ├── routes/
+    │   └── authRoutes.js
+    ├── middleware/
+    │   └── authMiddleware.js
+    ├── .env
+    ├── server.js
 
