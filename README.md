@@ -1,4 +1,4 @@
-# Full Stack Application - Angular & Express with JWT Authentication
+# Full Stack Application 
 # MEAN STACK PROJECT :)
 
 This repository contains a full-stack application with an Angular frontend, an Express backend, and MongoDB as the database. The app implements JWT authentication, user roles (Admin and User), file upload, and file sharing functionality.
