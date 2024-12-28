@@ -173,5 +173,66 @@ I enforced **Role based access control** using middleware functions:
             cb(new Error('Only images (jpg, png) and PDFs and DOCX are allowed.'));
         }}}).single('File');
     ```
+#### 2.2 Sharing the Files
+- Enabled users to **share uploaded files** with other users
+- Admins and file owners can manage file sharing.
+  ```bash
+  app.post('/files/share/:id', authenticateToken, authorizeRole('Admin', 'User'), async (req, res) => {
+    const file = await File.findById(req.params.id);
+    if (!file) return res.status(404).json({ error: 'File not found' });
+
+    // Allow the file owner or Admin to share it
+    if (file.uploadedBy.toString() !== req.user.id && req.user.role !== 'Admin') {
+        return res.status(403).json({ error: 'You are not authorized to share this file.' });
+    }
+
+    file.sharedWith.push(req.body.userId); // Add user ID to the sharedWith array
+    await file.save();
+    res.status(200).json({ message: 'File shared successfully.' });
+});
+  ```
+#### 2.3 Deleting Files
+- Allowed Admins and file owners to **delete files** from the database and server.
+```bash
+app.delete('/files/:id', authenticateToken,authorizeRole('Admin', 'User'), async (req, res) => {
+    try {
+        const file = await File.findById(req.params.id);
+        if (!file) return res.status(404).json({ error: 'File not found' });
+
+        if (file.uploadedBy.toString() !== req.user.id && req.user.role !== 'Admin') {
+            return res.status(403).json({ error: 'Access Forbidden' });
+        }
+
+        await file.delete();
+        res.status(200).json({ message: 'File deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ error: 'Error deleting the file' });
+    }
+});
+```
+#### 2.4 Postman Tests for File Management
+1. **Upload a File**
+   - URL: `http://localhost:3000/upload`
+   - Method: `POST`
+   - Headers:
+     ```json
+     {
+       "Authorization": "Bearer <JWTTOKENoftheUSWER>"
+     }
+     ```
+   - Body (Form-Data):
+     - Key: `File` (File Type)
+     - Value: Choose a file (e.g., `file1.docx`)
+   - Response: Returns file details.
+     ```bash
+     {
+    "message": "File uploaded successfully!",
+    "file": {
+        "id": "676f6a9956adc57b7af98a94",
+        "filename": "File-1735355033038.docx",
+        "filepath": "uploads\\File-1735355033038.docx"
+    }
+}
+     ```
 
      
