@@ -8,6 +8,6 @@ At first I installed all these:
 - **Node.js** (LTS version) - [Download Node.js](https://nodejs.org/)
 - **npm** (comes with Node.js) - Package manager
 - **MongoDB** - [Install MongoDB](https://www.mongodb.com/try/download/community)
-- **Angular CLI** - Install via npm: `npm install -g @angular/cli`
-- **Postman or any API testing tool** - For testing API routes
+- **Angular CLI** - Installed via npm: `npm install -g @angular/cli`
+- **Postman** - For testing API routes
 
