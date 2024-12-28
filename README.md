@@ -326,6 +326,10 @@ ng serve
 
 ## DATABASE (MongoDb)
 ![image](https://github.com/user-attachments/assets/55f5e846-0908-4b06-b2de-c000f5f951fe)
+![image](https://github.com/user-attachments/assets/a29f3f78-e22b-471e-a1c3-42b4feb765e4)
+![image](https://github.com/user-attachments/assets/6796852c-a0de-4139-84f0-1350276046e5)
+
+
 
 
 
