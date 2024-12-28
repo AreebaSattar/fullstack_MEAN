@@ -5,9 +5,20 @@ This repository contains a full-stack application with an Angular frontend, an E
 
 ## Prerequisites
 At first I installed all these:
-- **Node.js** (LTS version) - [Download Node.js](https://nodejs.org/)
+- **Node.js** (LTS version) - [Downloaded the Node.js](https://nodejs.org/)
 - **npm** (comes with Node.js) - Package manager
-- **MongoDB** - [Install MongoDB](https://www.mongodb.com/try/download/community)
+- **MongoDB** - [Installed MongoDB Compass](https://www.mongodb.com/try/download/compass)
 - **Angular CLI** - Installed via npm: `npm install -g @angular/cli`
-- **Postman** - For testing API routes
+- **Postman** - For testing the API routes (backend)
+
+## Project Structure
+The application is split into two main parts:
+I have used the jetbrains IDE (Webstorm) for both frontend and backend.
+1. **Backend** - Express API handling authentication, file uploads, and file sharing.
+2. **Frontend** - Angular application providing the user interface.
+
+## Step-by-Step Setup 
+- **Created a folder for the backend project and initialize Node.js Project**
+  ```bash
+  mkdir backend
 
