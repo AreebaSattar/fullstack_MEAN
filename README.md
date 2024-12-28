@@ -66,7 +66,30 @@ As our frontend is running on 4200 port and backend on 3000, so we need to insta
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Content-Type', 'Authorization']
   }));
-  
-  
-  
 
+## STEPS PERFORMED AND I VERIFIED THEM IN POSTMAN
+
+### 1. Authentication and Authorization
+#### 1.1 User Authentication with JWT
+- **Implemented JWT authentication as I mentioned above** for secure communication between frontend and backend side.
+- **Code generates JWT tokens** during the login and registeration of a user and also I set up an expiration after an hour
+#### 1.2 Roles and Permissions (Roles)
+- Created **Two Roles**
+  - **Admin** -> He manages all users and documents.
+  - **User** -> He can upload and view own docs and docs shared with them.
+I enforced **Role based access control** using middleware functions:
+- `authenticateToken` : Verifies JWT tokens
+- `authorizeRole` : it restricts access to specific roles.
+#### 1.3 Postman Tests for Authentication and Authorization
+- **Register a User**
+- URL: `http://localhost:3000/api/auth/register`
+   - Method: `POST`
+   - Body (JSON):
+     ```json
+     {
+       "username": "user1",
+       "password": "password123",
+       "role": "User"
+     }
+     ```
+   - Response: Returns user details and JWT token.
