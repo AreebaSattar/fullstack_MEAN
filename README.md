@@ -113,12 +113,12 @@ I enforced **Role based access control** using middleware functions:
      ```
    - Response: Returns user details and JWT token.
      ```json
-     {
-    "id": "676f6cc956adc57b7af98a97",
-    "username": "user1",
-    "role": "User",
-    "token": "TOKENGENERATED"
-    }
+       {
+      "id": "676f6cc956adc57b7af98a97",
+      "username": "user1",
+      "role": "User",
+      "token": "TOKENGENERATED"
+      }
     ```
 - **Access Admin Dashboard (Admin Only)**
    - URL: `http://localhost:3000/api/auth/admin-dashboard`
@@ -177,19 +177,17 @@ I enforced **Role based access control** using middleware functions:
 - Enabled users to **share uploaded files** with other users
 - Admins and file owners can manage file sharing.
   ```bash
-  app.post('/files/share/:id', authenticateToken, authorizeRole('Admin', 'User'), async (req, res) => {
-    const file = await File.findById(req.params.id);
-    if (!file) return res.status(404).json({ error: 'File not found' });
-
-    // Allow the file owner or Admin to share it
-    if (file.uploadedBy.toString() !== req.user.id && req.user.role !== 'Admin') {
-        return res.status(403).json({ error: 'You are not authorized to share this file.' });
-    }
-
-    file.sharedWith.push(req.body.userId); // Add user ID to the sharedWith array
-    await file.save();
-    res.status(200).json({ message: 'File shared successfully.' });
-});
+      app.post('/files/share/:id', authenticateToken, authorizeRole('Admin', 'User'), async (req, res) => {
+        const file = await File.findById(req.params.id);
+        if (!file) return res.status(404).json({ error: 'File not found' });
+    
+        // Allow the file owner or Admin to share it
+        if (file.uploadedBy.toString() !== req.user.id && req.user.role !== 'Admin') {
+            return res.status(403).json({ error: 'You are not authorized to share this file.' });}
+        file.sharedWith.push(req.body.userId); // Add user ID to the sharedWith array
+        await file.save();
+        res.status(200).json({ message: 'File shared successfully.' });
+    });
   ```
 #### 2.3 Deleting Files
 - Allowed Admins and file owners to **delete files** from the database and server.
@@ -230,9 +228,7 @@ app.delete('/files/:id', authenticateToken,authorizeRole('Admin', 'User'), async
     "file": {
         "id": "676f6a9956adc57b7af98a94",
         "filename": "File-1735355033038.docx",
-        "filepath": "uploads\\File-1735355033038.docx"
-    }
-}
+        "filepath": "uploads\\File-1735355033038.docx"}}
      ```
 
      
