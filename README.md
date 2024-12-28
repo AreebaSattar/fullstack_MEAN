@@ -316,9 +316,18 @@ ng serve
 ![image](https://github.com/user-attachments/assets/43f021a4-c6f8-4faa-a3d1-e9f93ced735f)
 #### login Component
 ![image](https://github.com/user-attachments/assets/75765b69-105d-4fc5-ad1b-7da952a55365)
+![image](https://github.com/user-attachments/assets/46b8d2e6-726c-44bd-92e2-6b90969ab598)
+
+#### Register User Component
+##### HTML File
+![image](https://github.com/user-attachments/assets/5a357fb1-f24f-46e7-85d1-229362852437)
+##### Register.component.ts
+![image](https://github.com/user-attachments/assets/bd03ca46-bfd6-4c93-bf59-0d95d57625bd)
 
 ## DATABASE (MongoDb)
 ![image](https://github.com/user-attachments/assets/55f5e846-0908-4b06-b2de-c000f5f951fe)
+
+
 
 
 
