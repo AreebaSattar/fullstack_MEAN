@@ -224,11 +224,61 @@ app.delete('/files/:id', authenticateToken,authorizeRole('Admin', 'User'), async
    - Response: Returns file details.
      ```bash
      {
-    "message": "File uploaded successfully!",
-    "file": {
+      "message": "File uploaded successfully!",
+      "file": {
         "id": "676f6a9956adc57b7af98a94",
         "filename": "File-1735355033038.docx",
         "filepath": "uploads\\File-1735355033038.docx"}}
      ```
+2. **Fetch Files**
+   - URL: `http://localhost:3000/files`
+   - Method: `GET`
+   - Headers:
+     ```json
+     {
+       "Authorization": "Bearer <JWTTOKENLoggedInuser>"
+     }
+     ```
+   - Response:
+     - **Admin Token**: All files can be fteched by Admin.
+     - **User Token**: Files uploaded by or shared with the looggedIn user.
+3. **Share a File**
+   - URL: `http://localhost:3000/files/share/:id`
+   - Method: `POST`
+   - Headers:
+     ```json
+       {
+         "Authorization": "Bearer <JWTTOKENLoggedInuser>"
+       }
+     ```
+   - Body (JSON):
+     ```json
+       {
+         "userId": "<UserIDtowhomshareWith>"
+       }
+     ```
+   - Response: File shared successfully. / {"error":"You are not authorized to share this file."}
+4. **Delete a File**
+   - URL: `http://localhost:3000/files/:id`
+   - Method: `DELETE`
+   - Headers:
+     ```json
+     {
+       "Authorization": "Bearer <JWTTOKENLoggedInuser>"
+     }
+     ```
+   - Response:
+     - **Admin or Owner of the file**: File deleted successfully.
+     - **Other Users**: Access denied.
 
+5. **Download a File**
+   - URL: `http://localhost:3000/files/:id`
+   - Method: `GET`
+   - Headers:
+     ```json
+     {
+       "Authorization": "Bearer <JWTTOKENLoggedInuser>"
+     }
+     ```
+   - Response: Downloads the file if the user has access.
      
