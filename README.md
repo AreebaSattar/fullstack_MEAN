@@ -317,6 +317,10 @@ ng serve
 #### login Component
 ![image](https://github.com/user-attachments/assets/75765b69-105d-4fc5-ad1b-7da952a55365)
 
+## DATABASE (MongoDb)
+![image](https://github.com/user-attachments/assets/55f5e846-0908-4b06-b2de-c000f5f951fe)
+
+
 
 
 
