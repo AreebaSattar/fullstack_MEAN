@@ -281,4 +281,38 @@ app.delete('/files/:id', authenticateToken,authorizeRole('Admin', 'User'), async
      }
      ```
    - Response: Downloads the file if the user has access.
-     
+## STEPS PERFORMED FOR FRONTEND PART done in ANGULAR
+The frontend of this project is built using Angular. Below are the steps I followed to set up the frontend project and connect it to the backend.
+
+### 1. Setting Up the Angular Project
+#### Install Angular CLI
+ I installed Angular CLI globally to create and manage Angular projects:
+   ```bash
+   npm install -g @angular/cli
+  ```
+#### Create a New Angular Project
+I created a new Angular project:
+  ```bash
+    ng new frontend
+  ```
+I chose CSS for styling 
+#### Then Navigated to the project folder  
+  ```bash
+cd fronend
+```
+#### Installed Dependencies
+- Installed required dependencies for making HTTP requests and handling JWT tokens:
+```bash
+  npm install @angular/common @angular/forms @angular/router @angular/http rxjs
+  npm install @auth0/angular-jwt
+```
+#### Serve Angular project
+```bash
+ng serve
+```
+
+
+
+
+
+
