@@ -329,9 +329,9 @@ ng serve
 ![image](https://github.com/user-attachments/assets/a29f3f78-e22b-471e-a1c3-42b4feb765e4)
 ![image](https://github.com/user-attachments/assets/6796852c-a0de-4139-84f0-1350276046e5)
 
-
-
-
+## Postman 
+![image](https://github.com/user-attachments/assets/b032597c-cf84-4a62-bedf-9970a8572219)
+![image](https://github.com/user-attachments/assets/692bf5ef-1090-4b66-b8a4-25ed85c6e4f1)
 
 
 
