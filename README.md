@@ -82,7 +82,7 @@ I enforced **Role based access control** using middleware functions:
 - `authorizeRole` : it restricts access to specific roles.
 #### 1.3 Postman Tests for Authentication and Authorization
 - **Register a User**
-- URL: `http://localhost:3000/api/auth/register`
+   - URL: `http://localhost:3000/api/auth/register`
    - Method: `POST`
    - Body (JSON):
      ```json
@@ -96,8 +96,82 @@ I enforced **Role based access control** using middleware functions:
      ```json
      {
       "id": "676f6cc956adc57b7af98a97",
-      "username": "user13",
+      "username": "user1",
       "role": "User",
       "token": "TOKENGENERATED"
       }
      ```
+- **Login a User**
+   - URL: `http://localhost:3000/api/auth/login`
+   - Method: `POST`
+   - Body (JSON):
+     ```json
+     {
+       "username": "user1",
+       "password": "password123"
+     }
+     ```
+   - Response: Returns user details and JWT token.
+     ```json
+     {
+    "id": "676f6cc956adc57b7af98a97",
+    "username": "user1",
+    "role": "User",
+    "token": "TOKENGENERATED"
+    }
+    ```
+- **Access Admin Dashboard (Admin Only)**
+   - URL: `http://localhost:3000/api/auth/admin-dashboard`
+   - Method: `GET`
+   - Headers:
+     ```json
+     {
+       "Authorization": "Bearer <OURJWTOKENforUser>"
+     }
+     ```
+   - Response:
+     - **Admin Token**: Welcome message for Admin.
+         ```json
+         { message: 'Welcome to the Admin Dashboard' }
+         ```
+     - **User Token**: Access denied.
+- **Access User Dashboard (User Only)**
+   - URL: `http://localhost:3000/api/auth/user-dashboard`
+   - Method: `GET`
+   - Headers:
+     ```json
+     {
+       "Authorization": "Bearer <OURJWTOKENforUSER>"
+     }
+     ```
+   - Response:
+     - **User Token**: Welcome message for User.
+       ```json
+         { message: 'Welcome to the User Dashboard' }
+         ```
+     - **Admin Token**: Access denied.
+    
+  ### 2. Document/ Files Management
+  #### 2.1 File Upload
+  - Allowed users to **upload files** with the following validations:
+  - **File types**: PDF, DOCX, PNG, JPG.
+  - **File size**: Maximum 5 MB.
+- Implemented using `multer` middleware in the backend. (TOOK HELP FROM GOOGLE different sites)
+    ```bash
+    const upload = multer({
+    storage: storage,
+    limits: { fileSize: 5000000 }, // 5MB file size limit
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = /jpeg|jpg|docx|png|pdf/;
+        const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+        const mimeType = allowedTypes.test(file.mimetype);
+        if (file.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+            cb(null, true);}
+        else if (extName && mimeType) {
+            cb(null, true);
+        } else {
+            cb(new Error('Only images (jpg, png) and PDFs and DOCX are allowed.'));
+        }}}).single('File');
+    ```
+
+     
