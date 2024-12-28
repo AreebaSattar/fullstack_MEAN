@@ -93,3 +93,11 @@ I enforced **Role based access control** using middleware functions:
      }
      ```
    - Response: Returns user details and JWT token.
+     ```json
+     {
+      "id": "676f6cc956adc57b7af98a97",
+      "username": "user13",
+      "role": "User",
+      "token": "TOKENGENERATED"
+      }
+     ```
